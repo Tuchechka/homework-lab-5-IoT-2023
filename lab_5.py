@@ -2,14 +2,15 @@ class Flower:
     """
     Flower
     """
-    def __init__(self, name, height, size, color, price, quantity, deliveryRate):
+    def __init__(self, name, height, size, color, price, quantity, delivery_rate):
         self.name = name
         self.height = height
         self.size = size
         self.color = color
         self.price = price
         self.quantity = quantity
-        self.deliveryRate = deliveryRate
+        self.delivery_rate = delivery_rate
+
 
 class FlowerShop:
     """
@@ -20,9 +21,9 @@ class FlowerShop:
 
     def add_flower(self, flower):
         """
-        Add new flower in the flower shop 
+        Add new flower in the flower shop
         """
-        if isinstance(flower, Flower) == True:
+        if isinstance(flower, Flower) is True:
             self.inventory[flower] = {"Name": flower.name, "Price": flower.price}
         else:
             raise TypeError
@@ -37,7 +38,7 @@ class FlowerShop:
         """
         Return top price of the flower shop
         """
-        return sorted(self.inventory.values(), key = lambda x: x["Price"], reverse = True)
+        return sorted(self.inventory.values(), key=lambda x: x["Price"], reverse=True)
 
 
 class Bouquet:
@@ -51,7 +52,7 @@ class Bouquet:
         """
         Add new flower in the bouqut
         """
-        if isinstance(flower, Flower) == True:
+        if isinstance(flower, Flower) is True:
             self.inventory.append(flower)
         else:
             raise TypeError
@@ -65,9 +66,11 @@ class Bouquet:
             result += flower.price * flower.quantity
         return result
 
-    
 
 def main():
+    """
+    Creating flowers and calling methods
+    """
     rose = Flower("Роза", 35, "Small", "Red", 322, 1, 0.1)
     orchid = Flower("Орхідея", 45, "Big", "White", 140, 51, 0.5)
     basil = Flower("Базилік", 38, "Medium", "Green", 250, 101, 0.7)
@@ -83,5 +86,6 @@ def main():
     bouquet.add_flower(orchid)
     bouquet.add_flower(basil)
     print(bouquet.count_price())
+
 
 main()
