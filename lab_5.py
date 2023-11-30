@@ -1,21 +1,15 @@
 class Flower:
-    """
-    Flower
-    """
-    def __init__(self, name, height, size, color, price, quantity, delivery_rate):
+    def __init__(self, name, height, size, *args):
         self.name = name
         self.height = height
         self.size = size
-        self.color = color
-        self.price = price
-        self.quantity = quantity
-        self.delivery_rate = delivery_rate
+        self.color = args[0]
+        self.price = args[1]
+        self.quantity = args[2]
+        self.delivery_rate = args[3]
 
 
 class FlowerShop:
-    """
-    Flower shop
-    """
     def __init__(self):
         self.inventory = {}
 
@@ -42,9 +36,6 @@ class FlowerShop:
 
 
 class Bouquet:
-    """
-    Bouqut of flowers
-    """
     def __init__(self):
         self.inventory = []
 
